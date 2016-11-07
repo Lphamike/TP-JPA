@@ -17,11 +17,11 @@ public class JdbcBookDao implements DAO<Book> {
 
     // JDBC driver name and database URL
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/NOM_DE_LA_BASE";
+    private static final String DB_URL = "jdbc:mysql://localhost:8889/Library?zeroDateTimeBehavior=convertToNull";
 
     //  Database credentials
-    private static final String USER = "LOGIN_MYSQL";
-    private static final String PASS = "MDP_MYSQL";
+    private static final String USER = "maximeAdmin";
+    private static final String PASS = "";
 
     private Connection connection;
 
