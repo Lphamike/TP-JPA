@@ -4,9 +4,17 @@
         <servlet-name>IndexServlet</servlet-name>
         <servlet-class>fr.sorbonne.miage.m1.servlets.IndexServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AjouterLivreServlet</servlet-name>
+        <servlet-class>fr.sorbonne.miage.m1.servlets.LivreServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
         <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjouterLivreServlet</servlet-name>
+        <url-pattern>/ajouterLivre</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
