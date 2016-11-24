@@ -4,7 +4,9 @@ import fr.sorbonne.miage.m1.beans.Book;
 import fr.sorbonne.miage.m1.dao.DAO;
 import fr.sorbonne.miage.m1.dao.JdbcBookDao;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
+import static javafx.application.Platform.exit;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +33,7 @@ public class IndexServlet extends HttpServlet {
             throws ServletException, IOException {
         System.out.println("Processing request in IndexServlet");
         bookDao = new JdbcBookDao();
+        exit();
         List<Book> books = bookDao.findAll();
         System.out.println("NB Books : " + books.size());
         response.setContentType("text/html;charset=UTF-8");
