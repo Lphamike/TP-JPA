@@ -25,15 +25,53 @@
                     <th>ISBN</th>
                     <th>Nom du livre</th>
                     <th>Prix</th>
+                    <th>Auteurs</th>
                 </tr>
                 <c:forEach items="${books}" var="book">
                     <tr>
                         <td>${book.isbn}</td>
                         <td>${book.getTitle()}</td>
                         <td>${book.getPrice()}</td>
+                        <td>
+                            <table>
+                                <c:forEach items="${book.getAuthors()}" var="author">
+                                    <tr><td>${author.lastname} ${author.firstname}</td></tr>
+                                </c:forEach>
+                            </table>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>
         </c:if>
+        <h3>Ajouter un livre : </h3>
+        <form action="${pageContext.request.contextPath}/ajouterLivre" method="post">
+            <h4>Livre : </h4>
+            <table>
+                <tr>
+                    <td>Numéro ISBN : </td>
+                    <td><input type="text" name="isbn"></td>
+                </tr>
+                <tr>
+                    <td>Nom du livre : </td>
+                    <td><input type="text" name="book_name"></td>
+                </tr>
+                <tr>
+                    <td>Prix : </td>
+                    <td><input type="number" step="0.01" name="book_price"><td>
+                </tr>
+            </table>
+            <h4>Auteur : </h4>
+            <table>
+                <tr>    
+                    <td>Nom de l'auteur : </td>
+                    <td><input type="text" name="author_firstname"></td>
+                </tr>
+                <tr>
+                    <td>Prénom de l'auteur : </td>
+                    <td><input type="text" name="author_lastname"></td>
+                </tr>
+            </table>
+            <button type="submit">Ajouter</button>
+        </form>       
     </body>
 </html>
