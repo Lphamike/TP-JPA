@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaQuery;
 
 /**
  *
@@ -27,7 +28,7 @@ public class JdbcBookDao implements DAO<Book> {
     
     @Override
     public List<Book> findAll() {
-        System.out.println("I'm here");
+        /*System.out.println("I'm here");
         List<Book> books = new ArrayList<>();   
         books = em.createQuery("SELECT b FROM Book b", Book.class).getResultList();    
         if(books == null){
@@ -35,7 +36,11 @@ public class JdbcBookDao implements DAO<Book> {
         }else{
             out.println("NO error");
         }
-        return books;
+        return books;*/
+        CriteriaQuery<Book> criteria = em.getCriteriaBuilder().createQuery(Book.class);
+        criteria.select(criteria.from(Book.class));
+        List<Book> ListOfBooks = em.createQuery(criteria).getResultList();
+        return ListOfBooks;
     }
 
     @Override
