@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaQuery;
 
 /**
  *
@@ -26,7 +27,10 @@ public class JdbcAuthorDao implements DAO<Author>{
     
     @Override
     public List<Author> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        CriteriaQuery<Author> criteria = em.getCriteriaBuilder().createQuery(Author.class);
+        criteria.select(criteria.from(Author.class));
+        List<Author> ListOfAuthors = em.createQuery(criteria).getResultList();
+        return ListOfAuthors;
     }
 
     @Override
