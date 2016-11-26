@@ -18,20 +18,10 @@ import javax.persistence.*;
  */
 public class JdbcBookDao implements DAO<Book> {
 
-    // JDBC driver name and database URL
-    private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/library";
-
-    //  Database credentials
-    private static final String USER = "root";
-    private static final String PASS = "";
-
-    private Connection connection;
-    
     private EntityManager em;
     
     public JdbcBookDao(){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("library");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("librarie");
         em = emf.createEntityManager();
     }
     
@@ -61,22 +51,6 @@ public class JdbcBookDao implements DAO<Book> {
         em.merge(b);
         em.flush();
         em.getTransaction().commit();
-    }
-
-    /**
-     * Method that creates a java.sql.Connection object to database
-     *
-     * @return java.sql.Connection
-     * @throws ClassNotFoundException
-     * @throws SQLException
-     */
-    private Connection getConnection() throws ClassNotFoundException, SQLException {
-        if (connection != null) {
-            return connection;
-        }
-        Class.forName(JDBC_DRIVER);
-        connection = DriverManager.getConnection(DB_URL, USER, PASS);
-        return connection;
     }
 
     @Override

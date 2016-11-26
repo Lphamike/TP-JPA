@@ -42,18 +42,23 @@ public class addBookServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
                       
-            int isbn = Integer.parseInt(request.getParameter("isbn"));
+            /*int isbn = Integer.parseInt(request.getParameter("isbn"));
             String book_name = request.getParameter("book_name");
             float price = Float.parseFloat(request.getParameter("book_price"));
             Author a = new Author(request.getParameter("author_firstname"),request.getParameter("author_lastname"));
-            out.println("isbn"+isbn);
+            out.println("isbn"+isbn);*/
             Book b = new Book();
+            int isbn = 123456789;
+            String book_title = "Traque Mortelle";
+            float price = 29.99F;
             b.setIsbn(isbn);
-            b.setTitle(book_name);
+            b.setTitle(book_title);
             b.setPrice(price);
+            b.getAuthors().add(new Author("Eddie", "MADEVA"));
+            b.getAuthors().add(new Author("Maxime", "RAVOISIER"));
             bookDao = new JdbcBookDao();
             bookDao.create(b);
-            response.sendRedirect("/Projet%20INF2");
+            //response.sendRedirect("/Projet%20INF2");
         }
     }
 

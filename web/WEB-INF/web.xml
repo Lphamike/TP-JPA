@@ -6,7 +6,7 @@
     </servlet>
     <servlet>
         <servlet-name>AjouterLivreServlet</servlet-name>
-        <servlet-class>fr.sorbonne.miage.m1.servlets.LivreServlet</servlet-class>
+        <servlet-class>fr.sorbonne.miage.m1.servlets.addBookServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
@@ -14,7 +14,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AjouterLivreServlet</servlet-name>
-        <url-pattern>/ajouterLivre</url-pattern>
+        <url-pattern>/book/add</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
