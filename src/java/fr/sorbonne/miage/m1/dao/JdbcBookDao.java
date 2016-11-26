@@ -40,7 +40,7 @@ public class JdbcBookDao implements DAO<Book> {
 
     @Override
     public Book findById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return em.find(Book.class, id);
     }
       
     @Override

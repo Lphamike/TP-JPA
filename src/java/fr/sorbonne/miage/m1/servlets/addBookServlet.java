@@ -8,6 +8,7 @@ package fr.sorbonne.miage.m1.servlets;
 import fr.sorbonne.miage.m1.beans.Author;
 import fr.sorbonne.miage.m1.beans.Book;
 import fr.sorbonne.miage.m1.dao.DAO;
+import fr.sorbonne.miage.m1.dao.JdbcAuthorDao;
 import fr.sorbonne.miage.m1.dao.JdbcBookDao;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -47,15 +48,23 @@ public class addBookServlet extends HttpServlet {
             float price = Float.parseFloat(request.getParameter("book_price"));
             Author a = new Author(request.getParameter("author_firstname"),request.getParameter("author_lastname"));
             out.println("isbn"+isbn);*/
-            Book b = new Book();
-            int isbn = 123456789;
+            
+            int isbn = 123456788;
             String book_title = "Traque Mortelle";
             float price = 29.99F;
-            b.setIsbn(isbn);
-            b.setTitle(book_title);
-            b.setPrice(price);
-            b.getAuthors().add(new Author("Eddie", "MADEVA"));
-            b.getAuthors().add(new Author("Maxime", "RAVOISIER"));
+            Book b = new Book(isbn, book_title, price);
+            DAO<Author> authorDao = new JdbcAuthorDao();
+            int id = 101;
+            Author a1;
+            a1 = authorDao.findById(id);
+            out.println(a1.getLastname());
+            id = 102;
+            Author a2 = authorDao.findById(id);
+            out.println(a2.getLastname());
+            //authorDao.create(a1);
+            //authorDao.create(a2);
+            b.getAuthors().add(a1);
+            b.getAuthors().add(a2);
             bookDao = new JdbcBookDao();
             bookDao.create(b);
             //response.sendRedirect("/Projet%20INF2");

@@ -6,6 +6,7 @@
 package fr.sorbonne.miage.m1.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -42,6 +43,7 @@ public class Author implements Serializable {
     public Author(String firstname, String lastname){
         this.firstname = firstname;
         this.lastname = lastname;
+        this.books = new ArrayList<>();
     }
     
     public int getId() {
