@@ -42,31 +42,16 @@ public class addBookServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-                      
-            /*int isbn = Integer.parseInt(request.getParameter("isbn"));
-            String book_name = request.getParameter("book_name");
-            float price = Float.parseFloat(request.getParameter("book_price"));
-            Author a = new Author(request.getParameter("author_firstname"),request.getParameter("author_lastname"));
-            out.println("isbn"+isbn);*/
-            
             int isbn = 123456788;
             String book_title = "Traque Mortelle";
             float price = 29.99F;
-            Book b = new Book(isbn, book_title, price);
-            DAO<Author> authorDao = new JdbcAuthorDao();
-            int id = 101;
-            Author a1;
-            a1 = authorDao.findById(id);
-            out.println(a1.getLastname());
-            id = 102;
-            Author a2 = authorDao.findById(id);
-            out.println(a2.getLastname());
-            //authorDao.create(a1);
-            //authorDao.create(a2);
-            b.getAuthors().add(a1);
-            b.getAuthors().add(a2);
-            bookDao = new JdbcBookDao();
-            bookDao.create(b);
+            Book b;
+            DAO<Book> bookDao = new JdbcBookDao();
+            b =  bookDao.findById(123456788);
+            out.println(b.getTitle());
+            Book b2 = new Book(123456788,"Traque vivante", 29.99F);
+            b2.setAuthors(b.getAuthors());
+            bookDao.update(b, b2);
             //response.sendRedirect("/Projet%20INF2");
         }
     }
