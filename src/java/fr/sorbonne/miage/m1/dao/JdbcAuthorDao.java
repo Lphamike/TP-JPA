@@ -42,13 +42,18 @@ public class JdbcAuthorDao implements DAO<Author>{
     }
 
     @Override
-    public void delete(Author t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delete(Author a) {
+        em.getTransaction().begin();
+        em.remove(a);
+        em.getTransaction().commit();
     }
 
     @Override
-    public void update(Author t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(Author a, Author n) {
+         em.getTransaction().begin();
+         a.setFirstname(n.getFirstname());
+         a.setLastname(n.getLastname());
+         em.getTransaction().commit();
     }
     
 }

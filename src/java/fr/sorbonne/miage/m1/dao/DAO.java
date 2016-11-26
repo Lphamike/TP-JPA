@@ -18,6 +18,6 @@ public interface DAO<T> {
     
     public void delete(T t);
     
-    public void update(T t);
+    public void update(T t, T n);
     
 }

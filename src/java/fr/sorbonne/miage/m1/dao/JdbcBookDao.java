@@ -55,12 +55,18 @@ public class JdbcBookDao implements DAO<Book> {
 
     @Override
     public void delete(Book t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        em.getTransaction().begin();
+        em.remove(t);
+        em.getTransaction().commit();
     }
 
     @Override
-    public void update(Book t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(Book t, Book n) {
+        em.getTransaction().begin();
+        t.setAuthors(n.getAuthors());
+        t.setPrice(n.getPrice());
+        t.setTitle(n.getTitle());
+        em.getTransaction().commit();
     }
 
 }
