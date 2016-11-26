@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author madevaed
  */
 @WebServlet(name = "AjouterLivre", urlPatterns = {"/AjouterLivre"})
-public class LivreServlet extends HttpServlet {
+public class addBookServlet extends HttpServlet {
     
     private DAO<Book> bookDao;
     /**
@@ -52,7 +52,7 @@ public class LivreServlet extends HttpServlet {
             b.setTitle(book_name);
             b.setPrice(price);
             bookDao = new JdbcBookDao();
-            bookDao.create(b, a);
+            bookDao.create(b);
             response.sendRedirect("/Projet%20INF2");
         }
     }

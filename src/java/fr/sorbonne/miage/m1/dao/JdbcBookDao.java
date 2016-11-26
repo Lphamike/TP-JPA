@@ -31,7 +31,7 @@ public class JdbcBookDao implements DAO<Book> {
     private EntityManager em;
     
     public JdbcBookDao(){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("INF2_JPAPU");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("library");
         em = emf.createEntityManager();
     }
     
@@ -54,12 +54,10 @@ public class JdbcBookDao implements DAO<Book> {
     }
       
     @Override
-    public void create(Book b, Author a) {
+    public void create(Book b) {
         em.getTransaction().begin();
         em.persist(b);
         em.flush();
-        b.getAuthors().add(a);
-        b.getAuthors().add(new Author("Champion", "Champion"));
         em.merge(b);
         em.flush();
         em.getTransaction().commit();
@@ -79,6 +77,16 @@ public class JdbcBookDao implements DAO<Book> {
         Class.forName(JDBC_DRIVER);
         connection = DriverManager.getConnection(DB_URL, USER, PASS);
         return connection;
+    }
+
+    @Override
+    public void delete(Book t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(Book t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

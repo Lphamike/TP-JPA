@@ -26,6 +26,7 @@
                     <th>Nom du livre</th>
                     <th>Prix</th>
                     <th>Auteurs</th>
+                    <th>Supprimer le livre</th>
                 </tr>
                 <c:forEach items="${books}" var="book">
                     <tr>
@@ -33,12 +34,14 @@
                         <td>${book.getTitle()}</td>
                         <td>${book.getPrice()}</td>
                         <td>
-                            <table>
+                            <table class="table">
                                 <c:forEach items="${book.getAuthors()}" var="author">
-                                    <tr><td>${author.lastname} ${author.firstname}</td></tr>
+                                        <tr><td>${author.lastname} ${author.firstname}</td></tr>
+                                        <tr>X</tr>
                                 </c:forEach>
                             </table>
                         </td>
+                        <td><!--<button type="button" class="btn btn-danger">Supprimer</button>--></td>    
                     </tr>
                 </c:forEach>
             </table>
@@ -71,7 +74,7 @@
                     <td><input type="text" name="author_lastname"></td>
                 </tr>
             </table>
-            <button type="submit">Ajouter</button>
+            <button type="submit">Valider</button>
         </form>       
     </body>
 </html>

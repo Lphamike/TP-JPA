@@ -14,5 +14,10 @@ public interface DAO<T> {
     
     public T findById(int id);
     
-    public void create(Book b, Author a);
+    public void create(T t);
+    
+    public void delete(T t);
+    
+    public void update(T t);
+    
 }
