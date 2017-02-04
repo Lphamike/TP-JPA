@@ -22,7 +22,7 @@ public class JdbcBookDao implements DAO<Book> {
     private EntityManager em;
     
     public JdbcBookDao(){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("librarie");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("livres");
         em = emf.createEntityManager();
     }
     

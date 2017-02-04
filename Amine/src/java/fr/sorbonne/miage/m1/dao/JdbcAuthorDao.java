@@ -21,7 +21,7 @@ public class JdbcAuthorDao implements DAO<Author>{
     private EntityManager em;
     
     public JdbcAuthorDao(){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("librarie");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("livres");
         em = emf.createEntityManager();
     }
     
