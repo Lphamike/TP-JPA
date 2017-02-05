@@ -1,4 +1,4 @@
-package fr.sorbonne.miage.m1.beans;
+package fr.sorbonne.miage.m1.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;

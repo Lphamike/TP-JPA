@@ -5,7 +5,7 @@
  */
 package fr.sorbonne.miage.m1.webservices;
 
-import fr.sorbonne.miage.m1.beans.Book;
+import fr.sorbonne.miage.m1.entity.Book;
 import fr.sorbonne.miage.m1.dao.DAO;
 import fr.sorbonne.miage.m1.dao.JdbcBookDao;
 import java.util.List;

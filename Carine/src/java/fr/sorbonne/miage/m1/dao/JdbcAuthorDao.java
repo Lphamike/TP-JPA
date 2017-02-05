@@ -5,7 +5,7 @@
  */
 package fr.sorbonne.miage.m1.dao;
 
-import fr.sorbonne.miage.m1.beans.Author;
+import fr.sorbonne.miage.m1.entity.Author;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

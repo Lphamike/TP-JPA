@@ -1,7 +1,7 @@
 package fr.sorbonne.miage.m1.dao;
 
-import fr.sorbonne.miage.m1.beans.Author;
-import fr.sorbonne.miage.m1.beans.Book;
+import fr.sorbonne.miage.m1.entity.Author;
+import fr.sorbonne.miage.m1.entity.Book;
 import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.DriverManager;

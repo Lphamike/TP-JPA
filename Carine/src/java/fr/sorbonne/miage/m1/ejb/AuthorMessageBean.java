@@ -5,8 +5,8 @@
  */
 package fr.sorbonne.miage.m1.ejb;
 
-import fr.sorbonne.miage.m1.beans.Author;
-import fr.sorbonne.miage.m1.beans.Book;
+import fr.sorbonne.miage.m1.entity.Author;
+import fr.sorbonne.miage.m1.entity.Book;
 import javax.annotation.Resource;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
