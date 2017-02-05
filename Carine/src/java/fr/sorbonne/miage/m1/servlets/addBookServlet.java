@@ -5,6 +5,7 @@
  */
 package fr.sorbonne.miage.m1.servlets;
 
+import fr.sorbonne.miage.m1.beans.BookFacade;
 import fr.sorbonne.miage.m1.entity.Author;
 import fr.sorbonne.miage.m1.entity.Book;
 import fr.sorbonne.miage.m1.dao.DAO;
@@ -28,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "AjouterLivre", urlPatterns = {"/AjouterLivre"})
 public class addBookServlet extends HttpServlet {
     
-    private DAO<Book> bookDao;
+    private BookFacade bookDao;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -46,12 +47,12 @@ public class addBookServlet extends HttpServlet {
             String book_title = "Traque Mortelle";
             float price = 29.99F;
             Book b;
-            DAO<Book> bookDao = new JdbcBookDao();
-            b =  bookDao.findById(123456788);
+            BookFacade bookDao = new BookFacade();
+            b =  bookDao.find(123456788);
             out.println(b.getTitle());
             Book b2 = new Book(123456788,"Traque vivante", 29.99F);
             b2.setAuthors(b.getAuthors());
-            bookDao.update(b, b2);
+            bookDao.edit(b2);
             //response.sendRedirect("/Projet%20INF2");
         }
     }
