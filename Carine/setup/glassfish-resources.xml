@@ -11,4 +11,14 @@
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="books" object-type="user" pool-name="mysql_Library_rootPool_1"/>
+    <admin-object-resource enabled="true" jndi-name="jms/jms"  res-type="javax.jms.Queue"  res-adapter="jmsra">
+        <property name="Name" value="PhysicalQueue"/>
+    </admin-object-resource>
+    <connector-connection-pool name="jms/jmsFactoryPool"  connection-definition-name="javax.jms.QueueConnectionFactory"  resource-adapter-name="jmsra"/>
+    <connector-resource enabled="true" jndi-name="jms/jmsFactory" pool-name="jms/jmsFactoryPool"  />
+    <admin-object-resource enabled="true" jndi-name="jms/Queue"  res-type="javax.jms.Queue"  res-adapter="jmsra">
+        <property name="Name" value="PhysicalQueue"/>
+    </admin-object-resource>
+    <connector-connection-pool name="jms/QueueFactoryPool"  connection-definition-name="javax.jms.QueueConnectionFactory"  resource-adapter-name="jmsra"/>
+    <connector-resource enabled="true" jndi-name="jms/QueueFactory" pool-name="jms/QueueFactoryPool"  />
 </resources>
