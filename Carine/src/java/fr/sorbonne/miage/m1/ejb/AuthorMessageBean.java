@@ -5,6 +5,7 @@
  */
 package fr.sorbonne.miage.m1.ejb;
 
+import fr.sorbonne.miage.m1.beans.Author;
 import fr.sorbonne.miage.m1.beans.Book;
 import javax.annotation.Resource;
 import javax.ejb.ActivationConfigProperty;
@@ -25,15 +26,15 @@ import javax.persistence.PersistenceContext;
     @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "jms/Queue"),
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")
 })
-public class BookMessageBean implements MessageListener {
+public class AuthorMessageBean implements MessageListener {
 
     @Resource
     private MessageDrivenContext mdc;
-
+    
     @PersistenceContext(unitName = "livres")
     private EntityManager em;
 
-    public BookMessageBean() {
+    public AuthorMessageBean() {
     }
 
     @Override
@@ -42,7 +43,7 @@ public class BookMessageBean implements MessageListener {
         try {
             if (message instanceof ObjectMessage) {
                 msg = (ObjectMessage) message;
-                Book e = (Book) msg.getObject();
+                Author e = (Author) msg.getObject();
                 save(e);
             }
         } catch (JMSException e) {
