@@ -7,7 +7,6 @@
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
       <property name="eclipselink.logging.level" value="INFO"/>
       <property name="eclipselink.deploy-on-startup" value="true"/>
-      <property name="toplink.platform.class.name" value="oracle.toplink.platform.database.MySQL4Platform"/>
     </properties>
   </persistence-unit>
 </persistence>

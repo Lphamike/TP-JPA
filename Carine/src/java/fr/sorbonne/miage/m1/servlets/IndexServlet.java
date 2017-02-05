@@ -2,10 +2,7 @@ package fr.sorbonne.miage.m1.servlets;
 
 import fr.sorbonne.miage.m1.beans.BookFacade;
 import fr.sorbonne.miage.m1.entity.Book;
-import fr.sorbonne.miage.m1.dao.DAO;
-import fr.sorbonne.miage.m1.dao.JdbcBookDao;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
 import static javafx.application.Platform.exit;
 import javax.servlet.ServletException;

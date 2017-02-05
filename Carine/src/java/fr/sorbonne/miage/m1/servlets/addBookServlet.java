@@ -6,16 +6,9 @@
 package fr.sorbonne.miage.m1.servlets;
 
 import fr.sorbonne.miage.m1.beans.BookFacade;
-import fr.sorbonne.miage.m1.entity.Author;
 import fr.sorbonne.miage.m1.entity.Book;
-import fr.sorbonne.miage.m1.dao.DAO;
-import fr.sorbonne.miage.m1.dao.JdbcAuthorDao;
-import fr.sorbonne.miage.m1.dao.JdbcBookDao;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
