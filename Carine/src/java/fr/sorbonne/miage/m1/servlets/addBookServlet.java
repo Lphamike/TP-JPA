@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "AjouterLivre", urlPatterns = {"/AjouterLivre"})
 public class addBookServlet extends HttpServlet {
     
-    private BookFacade bookDao;
+    private BookFacade book;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -40,12 +40,12 @@ public class addBookServlet extends HttpServlet {
             String book_title = "Traque Mortelle";
             float price = 29.99F;
             Book b;
-            BookFacade bookDao = new BookFacade();
-            b =  bookDao.find(123456788);
+            BookFacade book = new BookFacade();
+            b =  book.find(123456788);
             out.println(b.getTitle());
             Book b2 = new Book(123456788,"Traque vivante", 29.99F);
             b2.setAuthors(b.getAuthors());
-            bookDao.edit(b2);
+            book.edit(b2);
             //response.sendRedirect("/Projet%20INF2");
         }
     }

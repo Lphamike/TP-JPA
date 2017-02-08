@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class IndexServlet extends HttpServlet {
     
-    private BookFacade bookDao;
+    private BookFacade book;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,9 +30,9 @@ public class IndexServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         System.out.println("Processing request in IndexServlet");
-        bookDao = new BookFacade();
+        book = new BookFacade();
         exit();
-        List<Book> books = bookDao.findAll();
+        List<Book> books = book.findAll();
         System.out.println("NB Books : " + books.size());
         response.setContentType("text/html;charset=UTF-8");
         request.setAttribute("books", books);
